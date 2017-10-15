@@ -73,13 +73,14 @@ plt.scatter(x=kmeans.cluster_centers_[:,0],y=kmeans.cluster_centers_[:,1],color=
 plt.title("Clusters of Employee Turnover")
 plt.show()
 
-#Analyzed data of employees who were highly satisfied and high performing yet left the companuy
+#The above code we got it from one of the kernels of Kaggle but it did not explain
+#why didHigh performing who were highly satisfied left the company
+# Analyzed data of employees who were highly satisfied and high performing yet left the companuy
+
 df_turnover_1=df[df['turnover']==1].sort_values(['evaluation','satisfaction'],ascending=False)
 df_turnover_0=df[df['turnover']==0].sort_values(['evaluation','satisfaction'],ascending=False)
 
 
-#x=df_turnover_0['averageMonthlyHours'].head(10)
-#y=df_turnover_1['averageMonthlyHours'].head(10)
 
 
 eval_1=df_turnover_1['evaluation'].head(10).mean()
@@ -246,5 +247,4 @@ for i in range(10,55):
     scoring = 'roc_auc'
     results = model_selection.cross_val_score(modelCV, X_train, y_train, cv=kfold, scoring=scoring)
     print("AUC: %.3f (%.3f)" % (results.mean(), results.std()))
-
 
