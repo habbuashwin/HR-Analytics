@@ -5,9 +5,11 @@ import matplotlib.pyplot as plt # For graph
 import matplotlib as matplot # For graph
 import seaborn as sns # For data visualization
 # Built-in magic command function for displaying graph inline
-%matplotlib inline
+#%matplotlib inline
 
-:
+
+df = pd.DataFrame.from_csv('/Users/ashwinhabbu/PycharmProjects/Python_project/HR_comma_sep.csv', index_col=None)
+
 # Renaming certain columns for better readability
 # Can rename the columns in this way
 df = df.rename(columns={'satisfaction_level': 'satisfaction',
@@ -33,7 +35,7 @@ corr = df.corr()
 sns.heatmap(corr,
             xticklabels=corr.columns.values,
             yticklabels=corr.columns.values)
-sns.plt.title('Heatmap of Correlation Matrix')
+#sns.plt.title('Heatmap of Correlation Matrix')
 emp_population_satisfaction = df['satisfaction'].mean()
 emp_turnover_satisfaction = df[df['turnover']==1]['satisfaction'].mean()
 
