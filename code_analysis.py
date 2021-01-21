@@ -249,4 +249,5 @@ for i in range(10,55):
     scoring = 'roc_auc'
     results = model_selection.cross_val_score(modelCV, X_train, y_train, cv=kfold, scoring=scoring)
     print("AUC: %.3f (%.3f)" % (results.mean(), results.std()))
+    print("Model Updated")
 
